@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Gutiérrez | Nutricionista</title>
+    
+    <!-- Añadido el favicon aquí -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #a67c52;
+            --primary-hover: #8f6a45;
+            --primary-light: #c9a87c;
+            --secondary: #f7f3ee;
+            --dark: #2c2c2c;
+            --text: #3d3d3d;
+            --muted: #6b6b6b;
+            --light: #faf8f5;
+            --white: #ffffff;
+            --border: #e8e0d5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--white);
+            padding: 1.1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 20px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(166, 124, 82, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--dark);
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+
+        .logo-text .role {
+            font-size: 0.72rem;
+            color: var(--primary);
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.25s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--primary);
+            transition: width 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.85rem !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            color: var(--white) !important;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(160deg, var(--secondary) 0%, var(--light) 60%, #f0ebe3 100%);
+            padding: 7.5rem 6% 6.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-2 8-8 14-16 16 8 2 14 8 16 16 2-8 8-14 16-16-8-2-14-8-16-16z' fill='%23a67c52' fill-opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid var(--primary-light);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .hero h2 {
+            font-size: 3.6rem;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 1.3rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.95rem 2.2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(166, 124, 82, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* ========== SERVICIOS ========== */
+        .servicios {
+            padding: 6rem 6%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .section-line {
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            margin: 1.2rem auto 0;
+            border-radius: 2px;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .servicio-card {
+            background: var(--light);
+            padding: 2.2rem 1.8rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            border-color: var(--border);
+            background: var(--white);
+        }
+
+        .servicio-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.3rem;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+        }
+
+        .servicio-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* ========== PLANES ========== */
+        .planes {
+            padding: 6rem 6%;
+            background: var(--secondary);
+        }
+
+        .planes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.8rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .plan-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 14px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            box-shadow: 0 16px 40px rgba(166, 124, 82, 0.12);
+            transform: translateY(-6px);
+        }
+
+        .plan-card.destacado {
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 30px rgba(166, 124, 82, 0.1);
+        }
+
+        .plan-card.destacado::before {
+            content: 'Más popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .plan-price {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin: 1.2rem 0 0.3rem;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .plan-price span {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .plan-features {
+            text-align: left;
+            margin: 1.8rem 0 2rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            list-style: none;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #f0ebe3;
+            font-size: 0.9rem;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--primary);
+        }
+
+        .plan-card .btn {
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* ========== SOBRE MÍ ========== */
+        .sobre-mi {
+            padding: 6rem 6%;
+            background: var(--white);
+        }
+
+        .sobre-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sobre-visual {
+            background: var(--secondary);
+            border-radius: 16px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2c-1.5 6-6 10.5-12 12 6 1.5 10.5 6 12 12 1.5-6 6-10.5 12-12-6-1.5-10.5-6-12-12z' fill='%23a67c52' fill-opacity='0.06'/%3E%3C/svg%3E");
+        }
+
+        .sobre-logo-large {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            z-index: 1;
+            object-fit: contain;
+        }
+
+        .sobre-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .sobre-content p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .sobre-content .highlight {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ========== CONTACTO ========== */
+        .contacto {
+            padding: 6rem 6%;
+            background: var(--secondary);
+        }
+
+        .contacto-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contacto-info h3 {
+            font-size: 1.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contacto-info > p {
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .info-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+        }
+
+        .info-text strong {
+            display: block;
+            color: var(--dark);
+            font-size: 0.95rem;
+            margin-bottom: 0.15rem;
+            font-weight: 600;
+        }
+
+        .info-text p, .info-text a {
+            color: var(--muted);
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .info-text a:hover {
+            color: var(--primary);
+        }
+
+        .form-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.88rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            transition: all 0.25s ease;
+            background-color: var(--light);
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #b0a89e;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        form .btn {
+            width: 100%;
+            border-radius: 8px;
+            padding: 1.05rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: #999;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        footer p {
+            font-size: 0.88rem;
+            margin-bottom: 0.4rem;
+        }
+
+        footer .copyright {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #3a3a3a;
+            color: #777;
+            font-size: 0.82rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .contacto-container,
+            .sobre-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+
+            .sobre-visual {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.2rem 5%;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 5rem 5% 4.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.1rem;
+            }
+
+            .plan-card.destacado {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Logo Lucía Gutiérrez" class="logo-mark">
+            
+            <div class="logo-text">
+                <span class="name">Lucía Gutiérrez</span>
+                <span class="role">Dietista</span>
+            </div>
+        </a>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes</a>
+            <a href="#sobre">Sobre mí</a>
+            <a href="#contacto" class="nav-cta">Contactar</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Nutrición personalizada</span>
+            <h2>Transforma tu relación<br>con la alimentación</h2>
+            <p>Planes dietéticos diseñados para ti, con acompañamiento cercano y resultados sostenibles</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn">Agendar consulta</a>
+                <a href="#planes" class="btn btn-secondary">Ver planes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <div class="section-header">
+            <h2>Cómo puedo ayudarte</h2>
+            <div class="section-line"></div>
+            <p style="margin-top: 1rem;">Acompañamiento integral para que alcances tus objetivos de salud de forma realista</p>
+        </div>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="servicio-icon">🥗</div>
+                <h3>Evaluación nutricional</h3>
+                <p>Análisis completo de tu estado actual, hábitos y objetivos para diseñar el mejor punto de partida.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon">📋</div>
+                <h3>Dieta personalizada</h3>
+                <p>Planes adaptados a tus necesidades clínicas, preferencias alimentarias y estilo de vida real.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon">💬</div>
+                <h3>Seguimiento continuo</h3>
+                <p>Apoyo cercano con ajustes progresivos y resolución de dudas durante todo el proceso.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon">🏃</div>
+                <h3>Nutrición deportiva</h3>
+                <p>Estrategias orientadas al rendimiento para deportistas y personas con alta actividad física.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon">👨‍👩‍👧</div>
+                <h3>Nutrición familiar</h3>
+                <p>Planes prácticos para toda la familia, creando hábitos saludables sin complicaciones.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon">🎯</div>
+                <h3>Metas específicas</h3>
+                <p>Protocolos para pérdida de peso, composición corporal o manejo de patologías concretas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="planes" id="planes">
+        <div class="section-header">
+            <h2>Planes de acompañamiento</h2>
+            <div class="section-line"></div>
+            <p style="margin-top: 1rem;">Elige el nivel de seguimiento que mejor se adapte a ti</p>
+        </div>
+        <div class="planes-grid">
+            <div class="plan-card">
+                <h3>Básico</h3>
+                <div class="plan-price">40€<span>/mes</span></div>
+                <ul class="plan-features">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        1 consulta al mes
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Plan dietético personalizado
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Seguimiento diario vía WhatsApp
+                    </li>
+                </ul>
+                <a href="#contacto" class="btn">Seleccionar</a>
+            </div>
+
+            <div class="plan-card destacado">
+                <h3>Parejas</h3>
+                <div class="plan-price">60€<span>/mes</span></div>
+                <ul class="plan-features">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Consulta inicial + revisión quincenal
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Plan dietetico individual adaptado (para dos personas)
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Seguimiento quincenal y atención vía WhatsApp
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Acceso a recetas
+                    </li>
+                </ul>
+                <a href="#contacto" class="btn">Seleccionar</a>
+            </div>
+
+            <div class="plan-card">
+                <h3>Familiar</h3>
+                <div class="plan-price">120€<span>/Mes</span></div>
+                <ul class="plan-features">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Consulta inicial + revisión quincenal
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Plan dietetico individual adaptado (para 3-4 personas)
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Seguimiento quincenal y atención vía WhatsApp 
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Acceso a recetas básicas
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Incluye 3 o 4 personas
+                    </li>
+                </ul>
+                <a href="#contacto" class="btn">Seleccionar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section class="sobre-mi" id="sobre">
+        <div class="sobre-container">
+            <div class="sobre-visual">
+                <img src="logo.png" alt="Logo Lucía Gutiérrez" class="sobre-logo-large">
+            </div>
+            <div class="sobre-content">
+                <h2>Hola, soy Lucía</h2>
+                <p>Nutricionista apasionada por acompañar a las personas a encontrar una relación sana y sostenible con la comida.</p>
+                <p>Trabajo desde un enfoque <span class="highlight">realista y cercano</span>, sin dietas restrictivas ni promesas imposibles. Mi objetivo es que logres resultados que puedas mantener en el tiempo, adaptados a tu vida real.</p>
+                <p>Consultas <strong>presenciales en Moncada</strong> o completamente <strong>online</strong>, para que puedas elegir la modalidad que mejor te convenga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="section-header">
+            <h2>Hablemos</h2>
+            <div class="section-line"></div>
+            <p style="margin-top: 1rem;">Cuéntame tus objetivos y te ayudo a dar el primer paso</p>
+        </div>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Datos de contacto</h3>
+                <p>Estoy aquí para resolver tus dudas y acompañarte en el proceso.</p>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <strong>Instagram</strong>
+                        <a href="https://ig.me/m/nutreconlucia?text=Quiero%20informacion%20sobre%20un%20plan%20nutricional" target="_blank" rel="noopener noreferrer">Escríbeme</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <strong>Correo electrónico</strong>
+                        <a href="mailto:luciagdietetica@gmail.com">luciagdietetica@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <strong>Modalidad</strong>
+                        <p>Presencial en Moncada<br>o sesiones 100% online</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: María Navarro" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="maria@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono (opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 600 000 000">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">¿Cómo puedo ayudarte?</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntame brevemente tus objetivos..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="logo.png" alt="Logo Lucía Gutiérrez">
+        </div>
+        <p>Lucía Gutiérrez · Nutricionista</p>
+        <p>Presencial en Moncada · Sesiones online</p>
+        <p class="copyright">© 2025 Lucía Gutiérrez. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
